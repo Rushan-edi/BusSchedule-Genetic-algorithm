@@ -345,9 +345,6 @@ var passengerCount = [50, 54, 53, 58, 70, 90];
 // var secondLeastFittestParent;
 var id = 0;
 
-
-
-
 var chromosome = function (noOfSlots, noOfBusses) {
 
     let solution = [];
@@ -489,7 +486,7 @@ var calcCost = function (solution, passengerAverage, busArray) {
 
 
 // console.log("********** :"+chromosome(NO_OF_SLOTS,NO_OF_BUSSES));
-
+// this function generate set of solutions  
 var initialPopulation = function (size) {
 
     var generationJson = {
@@ -503,7 +500,9 @@ var initialPopulation = function (size) {
         solution = chromosome(NO_OF_SLOTS, NO_OF_BUSSES);
 
         generationJson.allocation.forEach(function (element) {
-            if (solution.length === element.busAllocation.length && solution.sort().every(function (value, index) { return value === element.busAllocation.sort()[index] })) {
+            if (solution.length === element.busAllocation.length && solution.sort().every(function (value, index) {
+                
+                return value === element.busAllocation.sort()[index] })) {
                 solution = chromosome(NO_OF_SLOTS, NO_OF_BUSSES);
                 console.log('BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM!!!')
                 return;
