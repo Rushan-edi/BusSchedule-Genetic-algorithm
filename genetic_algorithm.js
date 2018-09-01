@@ -493,21 +493,22 @@ var initialPopulation = function (size) {
         allocation: [
         ]
     };
-    console.log('BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM!!!')
+    // console.log('BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM!!!')
     for (let i = 0; i < size; ++i) {
         let solution;
 
         solution = chromosome(NO_OF_SLOTS, NO_OF_BUSSES);
 
         generationJson.allocation.forEach(function (element) {
-            if (solution.length === element.busAllocation.length && solution.sort().every(function (value, index) {
+            // if (solution.length === element.busAllocation.length && solution.sort().every(function (value, index) {
                 
-                return value === element.busAllocation.sort()[index] })) {
-                solution = chromosome(NO_OF_SLOTS, NO_OF_BUSSES);
-                console.log('BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM!!!')
-                return;
-            }
-        }, this);
+            //     return value === element.busAllocation.sort()[index] })) {
+            //     solution = chromosome(NO_OF_SLOTS, NO_OF_BUSSES);
+            //     console.log('BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM!!!')
+            //     return;
+            // }
+            console.log('BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM ');
+        });
 
         let returnEvaluvateSolution = calcCost(solution, [50, 54, 53, 58, 70, 90], busArray);
 
@@ -848,13 +849,13 @@ var runGeneration = function () {
         crossover(fitparent, secondfitParent);
         let gjson = mutate(newGeneration);
         let newFit = calculateFitness(gjson, busArray);
-        GenerationCount++
+
         console.log('GENERATION COUNT: ', newFit);
+        console.log('&&&&&&&&&&&&&&&&&&&&&& GENERATION COUNT &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&: ', GenerationCount);
         console.log('-------fittest solution');
         console.log(newFit);
         getFittestLastSolution(newFit);
-
-
+        GenerationCount++
 
     }
 
